@@ -1,0 +1,162 @@
+{% extends 'index.html' %}
+<!DOCTYPE html>
+{%load staticfiles%}
+<html>
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>INSPINIA | E-commerce</title>
+
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="font-awesome/css/font-awesome.css" rel="stylesheet">
+
+    <link href="css/plugins/summernote/summernote.css" rel="stylesheet">
+    <link href="css/plugins/summernote/summernote-bs3.css" rel="stylesheet">
+
+    <link href="css/plugins/datapicker/datepicker3.css" rel="stylesheet">
+
+    <link href="css/animate.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+
+
+
+</head>
+
+<body>
+{%block product_add%}
+<div id="wrapper">
+
+        <div class="row wrapper border-bottom white-bg page-heading">
+            <div class="col-lg-10">
+                <h2>Product edit</h2>
+                <ol class="breadcrumb">
+                    <li>
+                        <a href="index.html">Home</a>
+                    </li>
+                    <li>
+                        <a>E-commerce</a>
+                    </li>
+                    <li class="active">
+                        <strong>Product edit</strong>
+                    </li>
+                </ol>
+            </div>
+        </div>
+
+        <div class="wrapper wrapper-content animated fadeInRight ecommerce">
+
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="tabs-container">
+
+                            <ul class="nav nav-tabs">
+                                <li class="active"><a data-toggle="tab" href="#tab-1"> Product info</a></li>
+                            </ul>
+                            <div class="tab-content">
+                                <form method="post" action="" enctype="multipart/form-data">
+                                    {% csrf_token %}
+                                    <div id="tab-1" class="tab-pane active">
+                                    <div class="panel-body">
+
+                                        <fieldset class="form-horizontal">
+
+                                            <div class="form-group"><label class="col-sm-2 control-label">Name:</label>
+                                                <div class="col-sm-10"><input type="text" id="id_name" name="name" class="form-control" placeholder="product name" required=""></div>
+                                            </div>
+                                            <div class="form-group"><label class="col-sm-2 control-label">Price:</label>
+                                                <div class="col-sm-10"><input type="text" id="id_price" name="price" class="form-control" placeholder="price" required=""></div>
+                                            </div>
+                                            <div class="form-group"><label class="col-sm-2 control-label">Description:</label>
+                                                <div class="col-sm-10">
+                                                    <div class="summernote">
+                                                        <input type="text" id="id_description" name="description" class="form-control" placeholder="description" required="">
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group"><label class="col-sm-2 control-label">Stock:</label>
+                                                <div class="col-sm-10"><input type="text" id="id_stock" name="stock" class="form-control" placeholder="stock" required=""></div>
+                                            </div>
+                                            <div class="form-group"><label class="col-sm-2 control-label">{{form.image.label}}:</label>
+                                                {{form.image}}
+                                            </div>
+                                            <div class="form-group"><label class="col-sm-2 control-label">{{form.category.label}}:</label>
+                                                {{form.category}}
+                                            </div>
+                                            <div class="form-group">
+                                                {{form.store}}
+                                            </div>
+                                            <div class="form-group"><label class="col-sm-2 control-label">{{form.available.label}}:</label>
+                                                {{form.available}}
+                                            </div>
+                                        </fieldset>
+
+                                    </div>
+                                </div>
+                                    <input type="submit" value="Add product">
+                                </form>
+
+
+                            </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="footer">
+            <div class="pull-right">
+                10GB of <strong>250GB</strong> Free.
+            </div>
+            <div>
+                <strong>Copyright</strong> Example Company &copy; 2014-2017
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+
+<!-- Mainly scripts -->
+<script src="js/jquery-2.1.1.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/plugins/metisMenu/jquery.metisMenu.js"></script>
+<script src="js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+
+<!-- Custom and plugin javascript -->
+<script src="js/inspinia.js"></script>
+<script src="js/plugins/pace/pace.min.js"></script>
+
+<!-- SUMMERNOTE -->
+<script src="js/plugins/summernote/summernote.min.js"></script>
+
+<!-- Data picker -->
+<script src="js/plugins/datapicker/bootstrap-datepicker.js"></script>
+
+<script>
+    $(document).ready(function(){
+
+        $('.summernote').summernote();
+
+        $('.input-group.date').datepicker({
+            todayBtn: "linked",
+            keyboardNavigation: false,
+            forceParse: false,
+            calendarWeeks: true,
+            autoclose: true
+        });
+
+    });
+</script>
+
+
+
+
+{% endblock%}
+</body>
+
+</html>
+
