@@ -9,7 +9,7 @@ https://docs.djangoproject.com/en/2.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/2.2/ref/settings/
 """
-
+import django_heroku
 import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -109,21 +109,27 @@ SITE_ID = 1
 
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
-
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'shop_db1',
-        'USER': 'root',
-        'PASSWORD': 'root',
-    },
-    # 'db_1': {
-    #     'ENGINE': 'django.db.backends.mysql',
-    #     'NAME': 'shop_db1',
-    #     'USER': 'root',
-    #     'PASSWORD': 'root',
-    # }
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': 'mydatabase',
+    }
 }
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.mysql',
+#         'NAME': 'shop_db1',
+#         'USER': 'root',
+#         'PASSWORD': 'root',
+#     },
+#     # 'db_1': {
+#     #     'ENGINE': 'django.db.backends.mysql',
+#     #     'NAME': 'shop_db1',
+#     #     'USER': 'root',
+#     #     'PASSWORD': 'root',
+#     # }
+# }
 
 # Password validation
 # https://docs.djangoproject.com/en/2.2/ref/settings/#auth-password-validators
@@ -201,3 +207,5 @@ TWILIO_PHONE_NUMBER = '+12034578461'
 
 # Abstract user :
 AUTH_USER_MODEL = 'shop.MyUser'
+
+django_heroku.settings(locals())
